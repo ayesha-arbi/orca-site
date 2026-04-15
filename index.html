@@ -6,28 +6,36 @@
 <meta name="description" content="Orca Realty — Buy, sell, and rent premium properties with expert guidance. Trusted property management, tenant screening, and local market expertise across top locations.">
 <meta name="keywords" content="buy property, sell property, rent property, property management, real estate, Orca Realty">
 <title>Orca Realty | Buy, Sell & Rent Premium Properties</title>
+
+<!-- Updated Fonts: Montserrat for headings, Open Sans for body -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black: #0a0a0a;
+    /* Color Palette Tweaks for a more modern feel */
+    --black: #111111;
+    --black-light: #1f1f1f;
     --white: #ffffff;
-    --beige: #f0ece3;
-    --beige-dark: #e0d9cc;
-    --beige-mid: #e8e2d7;
-    --warm-gray: #8c8680;
-    --gold: #c9a96e;
-    --gold-light: #e8d5b0;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'DM Sans', sans-serif;
+    --beige: #f7f5f0;
+    --beige-dark: #e5e0d8;
+    --beige-mid: #f0ebe1;
+    --warm-gray: #6b6661;
+    --gold: #d4af37;
+    --gold-light: #f2d472;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --radius: 12px; /* Added rounded corners for a modern look */
+    --shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: var(--sans);
+    font-family: var(--font-body);
     background: var(--white);
     color: var(--black);
     line-height: 1.6;
@@ -39,43 +47,58 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.25rem 5%;
-    background: rgba(10,10,10,0.92);
+    background: rgba(17, 17, 17, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,169,110,0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   }
   .logo {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--white);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     text-decoration: none;
   }
   .logo span { color: var(--gold); }
+  
   .nav-links {
-    display: flex; gap: 2rem; list-style: none;
+    display: flex; gap: 2rem; list-style: none; align-items: center;
   }
   .nav-links a {
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.8);
     text-decoration: none;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--gold); }
+  
   .nav-cta {
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    padding: 0.65rem 1.5rem;
+    padding: 0.75rem 1.75rem;
     background: var(--gold);
     color: var(--black);
     text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s;
+    font-weight: 700;
+    border-radius: 50px; /* Pill shape button */
+    transition: background 0.2s, transform 0.2s;
   }
-  .nav-cta:hover { background: var(--gold-light); }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    width: 25px; height: 2px;
+    background: var(--white);
+    transition: 0.3s;
+  }
 
   /* ── HERO ── */
   .hero {
@@ -87,145 +110,179 @@
   }
   .hero-video-wrap {
     position: absolute; inset: 0;
-    opacity: 0.35;
+    opacity: 0.4;
   }
   .hero-video-placeholder {
     width: 100%; height: 100%;
-    background: linear-gradient(135deg, #1a1510 0%, #0a0a0a 50%, #151209 100%);
+    background: linear-gradient(135deg, #1f1c18 0%, #111 50%, #1a1710 100%);
     display: flex; align-items: center; justify-content: center;
   }
   .video-badge {
-    border: 1px solid rgba(201,169,110,0.5);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 30px;
     padding: 0.75rem 2rem;
-    color: rgba(201,169,110,0.6);
+    color: rgba(212, 175, 55, 0.8);
     font-size: 0.75rem;
-    letter-spacing: 0.2em;
+    font-weight: 600;
     text-transform: uppercase;
   }
   .hero-content {
     position: relative; z-index: 2;
     padding: 0 5%;
-    max-width: 760px;
-    padding-top: 5rem;
+    max-width: 800px;
+    padding-top: 6rem;
   }
   .hero-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 1.25rem;
     display: flex; align-items: center; gap: 1rem;
   }
   .hero-eyebrow::before {
-    content: '';
-    display: block; width: 40px; height: 1px;
-    background: var(--gold);
+    content: ''; display: block; width: 40px; height: 2px; background: var(--gold);
   }
   .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 5rem);
     font-weight: 300;
-    line-height: 1.08;
+    line-height: 1.1;
     color: var(--white);
     margin-bottom: 1.5rem;
-    letter-spacing: -0.01em;
   }
   .hero h1 em {
     font-style: italic;
+    font-weight: 600;
     color: var(--gold);
   }
   .hero p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.65);
-    max-width: 480px;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 500px;
     margin-bottom: 2.5rem;
-    line-height: 1.7;
   }
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  
   .btn-primary {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.9rem 2.2rem;
+    padding: 1rem 2.2rem;
     background: var(--gold);
     color: var(--black);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
+    border-radius: 50px;
     transition: all 0.2s;
   }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  
   .btn-ghost {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.9rem 2.2rem;
-    border: 1px solid rgba(255,255,255,0.3);
-    color: rgba(255,255,255,0.8);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
+    padding: 1rem 2.2rem;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
+    border-radius: 50px;
     transition: all 0.2s;
   }
   .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  
   .hero-stats {
-    position: absolute; bottom: 4rem; right: 5%;
+    position: absolute; bottom: 3rem; right: 5%;
     display: flex; gap: 3rem; z-index: 2;
   }
   .stat { text-align: right; }
   .stat-num {
-    font-family: var(--serif);
-    font-size: 2.4rem;
-    font-weight: 300;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
     color: var(--white);
     line-height: 1;
   }
-  .stat-num span { color: var(--gold); font-size: 1.2rem; }
+  .stat-num span { color: var(--gold); font-size: 1.5rem; }
   .stat-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-top: 0.25rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.5rem;
   }
 
   /* ── SECTION BASE ── */
   section { padding: 6rem 5%; }
   .section-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.25em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     display: flex; align-items: center; gap: 0.75rem;
   }
   .section-tag::before {
-    content: '';
-    width: 24px; height: 1px;
-    background: var(--gold); display: block;
+    content: ''; width: 24px; height: 2px; background: var(--gold); display: block;
   }
   h2.display {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
   }
-  h2.display em { font-style: italic; color: var(--gold); }
+  h2.display em { font-style: italic; font-weight: 600; color: var(--gold); }
   .section-sub {
     color: var(--warm-gray);
-    font-size: 0.95rem;
-    margin-top: 1rem;
-    max-width: 560px;
-    line-height: 1.7;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    max-width: 600px;
   }
+
+  /* ── VIDEO STRIP ── */
+  .video-owner-strip {
+    background: var(--black-light);
+    padding: 1.5rem 5%;
+    display: flex; align-items: center; gap: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .owner-video-thumb {
+    width: 80px; height: 52px;
+    background: #111;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+  }
+  .play-small {
+    width: 28px; height: 28px;
+    background: rgba(212, 175, 55, 0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .owner-video-info p:first-child {
+    font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem;
+  }
+  .owner-video-info p:last-child {
+    font-size: 0.9rem; color: rgba(255,255,255,0.7);
+  }
+  .watch-link {
+    margin-left: auto;
+    font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--white);
+    text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s;
+  }
+  .watch-link:hover { color: var(--gold); }
 
   /* ── WHY ORCA ── */
   .why-orca {
     background: var(--beige);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
-    padding: 0;
+    gap: 0; padding: 0;
   }
   .why-content {
     padding: 6rem 5%;
@@ -233,224 +290,137 @@
   }
   .why-video-side {
     background: var(--black);
-    position: relative; min-height: 500px;
+    position: relative; min-height: 400px;
     display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
   }
-  .video-overlay-text {
-    position: relative; z-index: 2; text-align: center;
-  }
+  .video-overlay-text { text-align: center; z-index: 2; }
   .play-btn {
-    width: 70px; height: 70px;
-    border: 1px solid var(--gold);
+    width: 80px; height: 80px;
+    background: var(--gold);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.25rem;
-    cursor: pointer; transition: background 0.2s;
+    margin: 0 auto 1.25rem; cursor: pointer; transition: transform 0.2s;
   }
-  .play-btn:hover { background: rgba(201,169,110,0.15); }
-  .play-btn svg { margin-left: 4px; }
+  .play-btn:hover { transform: scale(1.05); }
+  .play-btn svg { margin-left: 5px; fill: var(--black); }
   .video-overlay-text p {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: var(--white);
   }
   .why-features {
     margin-top: 3rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
   }
-  .why-feat { }
   .why-feat-num {
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.25rem;
+    font-family: var(--font-heading);
+    font-size: 2.2rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 0.5rem;
   }
   .why-feat-label {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--black);
-    margin-bottom: 0.35rem;
+    font-size: 0.95rem; font-weight: 700; color: var(--black); margin-bottom: 0.25rem;
   }
-  .why-feat-desc { font-size: 0.82rem; color: var(--warm-gray); line-height: 1.5; }
+  .why-feat-desc { font-size: 0.85rem; color: var(--warm-gray); }
 
   /* ── AUDIENCE TABS ── */
   .audience { background: var(--white); }
   .audience-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--beige-dark);
-    border: 1px solid var(--beige-dark);
-    margin-top: 3rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
   }
   .audience-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    transition: background 0.3s;
+    background: var(--beige);
+    padding: 3rem 2rem;
+    border-radius: var(--radius);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
     cursor: pointer;
-    position: relative;
   }
-  .audience-card:hover { background: var(--beige); }
+  .audience-card:hover { 
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    background: var(--white);
+    border: 1px solid var(--beige-dark);
+  }
   .audience-card.active {
-    background: var(--black); color: var(--white);
+    background: var(--black); color: var(--white); box-shadow: var(--shadow);
   }
-  .aud-icon {
-    width: 42px; height: 42px; margin-bottom: 1.25rem;
-    opacity: 0.6;
-  }
+  .aud-icon { width: 48px; height: 48px; margin-bottom: 1.5rem; }
   .audience-card h3 {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.75rem;
+    font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;
   }
   .audience-card.active h3 { color: var(--gold); }
-  .audience-card p { font-size: 0.85rem; line-height: 1.7; color: var(--warm-gray); }
-  .audience-card.active p { color: rgba(255,255,255,0.6); }
+  .audience-card p { font-size: 0.95rem; color: var(--warm-gray); }
+  .audience-card.active p { color: rgba(255,255,255,0.7); }
   .audience-cta {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    margin-top: 1.5rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
+    margin-top: 1.5rem; font-size: 0.85rem; font-weight: 700;
+    text-transform: uppercase; color: var(--gold); text-decoration: none;
   }
 
   /* ── LISTINGS ── */
   .listings { background: var(--beige); }
   .listings-header {
     display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;
   }
-  .listings-filter {
-    display: flex; gap: 0.5rem;
-  }
+  .listings-filter { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .filter-btn {
-    padding: 0.5rem 1.25rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid var(--beige-dark);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--sans);
+    padding: 0.6rem 1.5rem; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+    border: 1px solid var(--beige-dark); border-radius: 50px; background: var(--white);
+    cursor: pointer; transition: all 0.2s; font-family: var(--font-body);
   }
   .filter-btn.active, .filter-btn:hover {
     background: var(--black); color: var(--white); border-color: var(--black);
   }
   .listings-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
   }
   .listing-card {
-    background: var(--white);
-    overflow: hidden;
-    transition: transform 0.3s;
-    cursor: pointer;
+    background: var(--white); border-radius: var(--radius); overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s;
   }
-  .listing-card:hover { transform: translateY(-4px); }
+  .listing-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
   .listing-img {
-    aspect-ratio: 4/3;
-    background: var(--beige-mid);
-    position: relative;
-    overflow: hidden;
+    aspect-ratio: 4/3; background: var(--beige-mid); position: relative;
     display: flex; align-items: center; justify-content: center;
   }
-  .listing-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    display: block;
-  }
-  .listing-img-placeholder {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 0.5rem;
-  }
-  .img-icon { opacity: 0.25; }
-  .listing-img-placeholder span {
-    font-size: 0.7rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--warm-gray);
-    opacity: 0.5;
-  }
   .listing-badge {
-    position: absolute; top: 1rem; left: 1rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.75rem;
-    background: var(--gold);
-    color: var(--black);
-    font-weight: 600;
+    position: absolute; top: 1rem; left: 1rem; font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 20px;
+    background: var(--gold); color: var(--black);
   }
-  .listing-body { padding: 1.25rem; }
+  .listing-body { padding: 1.5rem; }
   .listing-price {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
+    font-family: var(--font-heading); font-size: 1.6rem; font-weight: 600; margin-bottom: 0.5rem;
   }
-  .listing-name { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.2rem; }
-  .listing-loc { font-size: 0.78rem; color: var(--warm-gray); }
+  .listing-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .listing-loc { font-size: 0.85rem; color: var(--warm-gray); }
   .listing-meta {
-    display: flex; gap: 1rem; margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--beige-mid);
+    display: flex; gap: 1.5rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--beige-mid);
   }
-  .meta-item { font-size: 0.75rem; color: var(--warm-gray); }
-  .meta-item strong { color: var(--black); font-weight: 500; }
-  .listings-cta { text-align: center; margin-top: 3rem; }
+  .meta-item { font-size: 0.85rem; color: var(--warm-gray); }
+  .meta-item strong { color: var(--black); font-weight: 700; }
+  .listings-cta { text-align: center; margin-top: 4rem; }
 
   /* ── SERVICES ── */
   .services { background: var(--black); }
-  .services .section-tag { color: var(--gold); }
   .services h2.display { color: var(--white); }
-  .services .section-sub { color: rgba(255,255,255,0.45); }
+  .services .section-sub { color: rgba(255,255,255,0.6); }
   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.08);
-    margin-top: 3.5rem;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem;
   }
   .service-card {
-    background: var(--black);
-    padding: 2.5rem 1.75rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    transition: background 0.3s;
+    background: var(--black-light); padding: 2.5rem 2rem; border-radius: var(--radius);
+    transition: background 0.3s; border: 1px solid rgba(255,255,255,0.05);
   }
-  .service-card:hover { background: #111; }
+  .service-card:hover { background: #2a2a2a; border-color: rgba(212,175,55,0.3); }
   .service-num {
-    font-family: var(--serif);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: rgba(201,169,110,0.25);
-    line-height: 1;
-    margin-bottom: 1.5rem;
+    font-family: var(--font-heading); font-size: 2.5rem; font-weight: 700;
+    color: rgba(212, 175, 55, 0.2); margin-bottom: 1.5rem;
   }
   .service-card h3 {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.02em;
+    font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 1rem;
   }
-  .service-card p { font-size: 0.82rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
+  .service-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); }
   .service-link {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    margin-top: 1.25rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem;
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--gold); text-decoration: none;
   }
 
   /* ── LOCATIONS ── */
@@ -458,313 +428,190 @@
   .locations-content { padding: 6rem 5%; display: flex; flex-direction: column; justify-content: center; }
   .location-list { margin-top: 2.5rem; }
   .location-item {
-    display: flex; align-items: flex-start; gap: 1.5rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--beige-dark);
-    cursor: pointer; transition: padding-left 0.2s;
+    display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 0;
+    border-bottom: 1px solid var(--beige-dark); cursor: pointer; transition: padding-left 0.2s;
   }
-  .location-item:hover { padding-left: 0.5rem; }
+  .location-item:hover { padding-left: 1rem; }
   .loc-num {
-    font-family: var(--serif);
-    font-size: 0.85rem;
-    color: var(--gold);
-    min-width: 24px;
-    margin-top: 0.1rem;
+    font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--gold); margin-top: 0.2rem;
   }
-  .loc-name {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-  }
-  .loc-desc { font-size: 0.82rem; color: var(--warm-gray); }
+  .loc-name { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .loc-desc { font-size: 0.9rem; color: var(--warm-gray); }
   .locations-map {
-    background: var(--black);
-    display: flex; align-items: center; justify-content: center;
-    min-height: 500px; position: relative;
-  }
-  .map-placeholder {
-    text-align: center;
+    background: var(--black-light); display: flex; align-items: center; justify-content: center; min-height: 400px;
   }
   .map-dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 6px rgba(201,169,110,0.2), 0 0 0 12px rgba(201,169,110,0.08);
-    margin: 0 auto 1.5rem;
-  }
-  .map-placeholder p {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
+    width: 16px; height: 16px; border-radius: 50%; background: var(--gold);
+    box-shadow: 0 0 0 8px rgba(212,175,55,0.2), 0 0 0 16px rgba(212,175,55,0.1); margin: 0 auto 1.5rem;
   }
 
-  /* ── WHY CHOOSE ── */
+  /* ── WHY CHOOSE / BENTO ── */
   .why-choose { background: var(--white); }
   .features-bento {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 1.5rem;
-    margin-top: 3.5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 4rem;
   }
   .bento-card {
-    background: var(--beige);
-    padding: 3rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-    align-items: center;
+    background: var(--beige); padding: 3rem; border-radius: var(--radius);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
   }
-  .bento-card.full { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .bento-card.full { grid-column: 1 / -1; }
   .bento-card.dark { background: var(--black); }
   .bento-media {
-    background: var(--beige-mid);
-    aspect-ratio: 4/3;
+    background: var(--beige-dark); border-radius: 8px; aspect-ratio: 4/3;
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--warm-gray);
-    opacity: 0.7;
-    position: relative;
   }
-  .bento-media.dark-bg { background: #1a1a1a; }
-  .bento-text .section-tag { margin-bottom: 0.5rem; }
+  .bento-media.dark-bg { background: var(--black-light); }
   .bento-text h3 {
-    font-family: var(--serif);
-    font-size: 1.8rem;
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 0.75rem;
+    font-family: var(--font-heading); font-size: 1.8rem; font-weight: 600; margin-bottom: 1rem;
   }
   .bento-card.dark .bento-text h3 { color: var(--white); }
-  .bento-text p { font-size: 0.85rem; color: var(--warm-gray); line-height: 1.7; }
-  .bento-card.dark .bento-text p { color: rgba(255,255,255,0.45); }
-  .bento-text .btn-primary { margin-top: 1.5rem; font-size: 0.72rem; padding: 0.7rem 1.5rem; }
+  .bento-text p { font-size: 0.95rem; color: var(--warm-gray); }
+  .bento-card.dark .bento-text p { color: rgba(255,255,255,0.6); }
+  .bento-text .btn-primary { margin-top: 1.5rem; }
 
   /* ── TESTIMONIALS ── */
-  .testimonials { background: var(--beige); }
+  .testimonials { background: var(--beige); text-align: center; }
+  .testimonials .section-tag { justify-content: center; }
   .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 3rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; text-align: left;
   }
   .testimonial-card {
-    background: var(--white);
-    padding: 2rem;
+    background: var(--white); padding: 2.5rem; border-radius: var(--radius); box-shadow: var(--shadow);
   }
-  .stars {
-    color: var(--gold);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-  }
+  .stars { color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem; }
   .testimonial-card blockquote {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--black);
-    margin-bottom: 1.25rem;
-    font-style: italic;
+    font-size: 1.05rem; font-weight: 400; font-style: italic; color: var(--black); margin-bottom: 1.5rem;
   }
-  .reviewer { display: flex; align-items: center; gap: 0.75rem; }
+  .reviewer { display: flex; align-items: center; gap: 1rem; }
   .reviewer-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--beige-dark);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.75rem; font-weight: 600; color: var(--warm-gray);
+    width: 45px; height: 45px; border-radius: 50%; background: var(--beige-dark);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--warm-gray);
   }
-  .reviewer-name { font-size: 0.85rem; font-weight: 500; }
-  .reviewer-role { font-size: 0.75rem; color: var(--warm-gray); }
+  .reviewer-name { font-weight: 700; font-size: 0.95rem; }
+  .reviewer-role { font-size: 0.85rem; color: var(--warm-gray); }
 
   /* ── CTA ── */
   .cta-section {
-    background: var(--black);
-    padding: 7rem 5%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    background: var(--black); padding: 8rem 5%; text-align: center; position: relative;
   }
   .cta-section::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 50% 100%, rgba(201,169,110,0.08) 0%, transparent 60%);
+    content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(212,175,55,0.1) 0%, transparent 70%);
   }
   .cta-section .section-tag { justify-content: center; }
   .cta-section .section-tag::before { display: none; }
-  .cta-section h2.display { color: var(--white); text-align: center; margin: 0 auto; }
-  .cta-section p { color: rgba(255,255,255,0.5); margin: 1.25rem auto 2.5rem; max-width: 480px; font-size: 0.95rem; }
-  .cta-form {
-    display: flex; gap: 0; max-width: 500px; margin: 0 auto;
-  }
+  .cta-section h2.display { color: var(--white); margin: 0 auto; }
+  .cta-section p { color: rgba(255,255,255,0.7); margin: 1.5rem auto 3rem; max-width: 500px; font-size: 1.1rem; }
+  .cta-form { display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto; position: relative; z-index: 2; }
   .cta-form input {
-    flex: 1;
-    padding: 1rem 1.25rem;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-right: none;
-    color: var(--white);
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    outline: none;
+    flex: 1; padding: 1.2rem 1.5rem; border-radius: 50px; background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2); color: var(--white); font-family: var(--font-body); font-size: 0.95rem; outline: none;
   }
-  .cta-form input::placeholder { color: rgba(255,255,255,0.3); }
   .cta-form button {
-    padding: 1rem 1.75rem;
-    background: var(--gold);
-    color: var(--black);
-    border: none;
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
+    padding: 1.2rem 2rem; border-radius: 50px; background: var(--gold); color: var(--black);
+    border: none; font-family: var(--font-body); font-weight: 700; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s; white-space: nowrap;
   }
   .cta-form button:hover { background: var(--gold-light); }
 
   /* ── READY CTA ── */
   .ready-section {
-    background: var(--beige);
-    padding: 7rem 5%;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    background: var(--beige); padding: 6rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
   }
-  .ready-section h2.display { font-size: clamp(2rem, 3.5vw, 3rem); }
-  .ready-section p { margin-top: 1rem; color: var(--warm-gray); font-size: 0.9rem; }
-  .ready-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .ready-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; width: 100%; max-width: 400px; }
   .ready-btn-primary {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 1rem 2rem;
-    background: var(--black);
-    color: var(--white);
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-    width: 100%;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center; width: 100%; padding: 1.2rem;
+    background: var(--black); color: var(--white); font-weight: 700; text-transform: uppercase;
+    text-decoration: none; border-radius: 50px; transition: background 0.2s;
   }
-  .ready-btn-primary:hover { background: #1a1a1a; }
+  .ready-btn-primary:hover { background: var(--black-light); }
   .ready-btn-outline {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 1rem 2rem;
-    border: 1px solid var(--beige-dark);
-    color: var(--black);
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.2s;
-    width: 100%;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center; width: 100%; padding: 1.2rem;
+    border: 2px solid var(--beige-dark); color: var(--black); font-weight: 700; text-transform: uppercase;
+    text-decoration: none; border-radius: 50px; transition: border-color 0.2s;
   }
   .ready-btn-outline:hover { border-color: var(--black); }
 
   /* ── FOOTER ── */
-  footer {
-    background: var(--black);
-    padding: 5rem 5% 3rem;
-    color: rgba(255,255,255,0.5);
-  }
+  footer { background: var(--black); padding: 5rem 5% 2rem; color: rgba(255,255,255,0.6); }
   .footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 2rem;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 2rem;
   }
-  .footer-brand .logo { display: block; margin-bottom: 1rem; }
-  .footer-brand p { font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.4); max-width: 280px; }
-  .footer-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+  .footer-brand .logo { display: block; margin-bottom: 1.5rem; }
+  .footer-brand p { font-size: 0.95rem; max-width: 300px; }
+  .footer-socials { display: flex; gap: 1rem; margin-top: 1.5rem; }
   .social-icon {
-    width: 34px; height: 34px;
-    border: 1px solid rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 0.7rem;
-    transition: all 0.2s;
+    width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center; color: var(--white);
+    text-decoration: none; transition: background 0.2s; font-size: 0.85rem; font-weight: 600;
   }
-  .social-icon:hover { border-color: var(--gold); color: var(--gold); }
+  .social-icon:hover { background: var(--gold); color: var(--black); }
   .footer-col h4 {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 1.25rem;
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 1.5rem;
   }
   .footer-col ul { list-style: none; }
-  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col li { margin-bottom: 0.8rem; }
   .footer-col a {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: color 0.2s;
+    font-size: 0.95rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s;
   }
   .footer-col a:hover { color: var(--gold); }
   .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.75rem; color: rgba(255,255,255,0.25);
-    flex-wrap: wrap; gap: 1rem;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem;
   }
 
-  /* ── VIDEO STRIP ── */
-  .video-owner-strip {
-    background: var(--black);
-    padding: 1.5rem 5%;
-    display: flex; align-items: center; gap: 2rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+  /* ── MEDIA QUERIES (RESPONSIVE DESIGN) ── */
+  @media (max-width: 1024px) {
+    .audience-grid, .listings-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid, .features-bento, .bento-card { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: repeat(2, 1fr); }
   }
-  .owner-video-thumb {
-    width: 80px; height: 52px;
-    background: #1a1a1a;
-    border: 1px solid rgba(201,169,110,0.3);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; flex-shrink: 0;
-    position: relative;
+
+  @media (max-width: 768px) {
+    section { padding: 4rem 5%; }
+    h2.display { font-size: 2.2rem; }
+    
+    /* Mobile Navigation */
+    .menu-toggle { display: flex; }
+    .nav-links {
+      position: absolute; top: 100%; left: 0; right: 0; background: var(--black);
+      flex-direction: column; padding: 2rem; display: none; align-items: flex-start;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .nav-links.active { display: flex; }
+    .nav-cta { display: none; } /* Hide pill button on very small screens to save space */
+
+    .hero h1 { font-size: 2.8rem; }
+    .hero-stats { position: relative; bottom: auto; right: auto; margin-top: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+    
+    .why-orca, .locations, .ready-section { grid-template-columns: 1fr; }
+    .audience-grid, .listings-grid, .services-grid, .testimonials-grid, .footer-top { grid-template-columns: 1fr; }
+    
+    .why-features { grid-template-columns: 1fr; gap: 1.5rem; }
+    .features-bento { grid-template-columns: 1fr; }
+    .bento-card, .bento-card.full { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem; }
+    
+    .video-owner-strip { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .watch-link { margin-left: 0; }
+    
+    .cta-form { flex-direction: column; }
+    .cta-form input { border-radius: 8px; }
+    .cta-form button { border-radius: 8px; margin-top: 0.5rem; }
   }
-  .play-small {
-    width: 24px; height: 24px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .owner-video-info p:first-child {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.15rem;
-  }
-  .owner-video-info p:last-child {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.5);
-  }
-  .watch-link {
-    margin-left: auto;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-    text-decoration: none;
-    display: flex; align-items: center; gap: 0.5rem;
-    transition: color 0.2s;
-  }
-  .watch-link:hover { color: var(--gold); }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo">Orca<span>.</span></a>
-  <ul class="nav-links">
+  <!-- ADD LINK HERE -->
+  <a href="/" class="logo">Orca<span>.</span></a>
+  
+  <div class="menu-toggle" id="mobile-menu-btn">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <!-- ADD LINKS HERE -->
     <li><a href="#buy">Buy</a></li>
     <li><a href="#sell">Sell</a></li>
     <li><a href="#rent">Rent</a></li>
@@ -772,7 +619,9 @@
     <li><a href="#locations">Locations</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get a Free Valuation</a>
+  
+  <!-- ADD LINK HERE -->
+  <a href="#contact" class="nav-cta">Free Valuation</a>
 </nav>
 
 <!-- HERO -->
@@ -784,10 +633,11 @@
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow">Premium Property Services</div>
-    <h1>Your property,<br><em>expertly</em><br>guided.</h1>
+    <h1>Your property,<br><em>expertly</em> guided.</h1>
     <p>Orca Realty connects buyers, sellers, and landlords with trusted local experts who deliver measurable results — faster sales, better tenants, and higher returns.</p>
     <div class="hero-actions">
-      <a href="#listings" class="btn-primary">Browse Listings →</a>
+      <!-- ADD LINKS HERE -->
+      <a href="#listings" class="btn-primary">Browse Listings</a>
       <a href="#contact" class="btn-ghost">Free Consultation</a>
     </div>
   </div>
@@ -811,8 +661,8 @@
 <div class="video-owner-strip">
   <div class="owner-video-thumb">
     <div class="play-small">
-      <svg width="8" height="10" viewBox="0 0 8 10" fill="none">
-        <path d="M1 1l6 4-6 4V1z" fill="#c9a96e"/>
+      <svg width="10" height="12" viewBox="0 0 8 10" fill="none">
+        <path d="M1 1l6 4-6 4V1z" fill="#111"/>
       </svg>
     </div>
   </div>
@@ -820,7 +670,8 @@
     <p>Message from our founder</p>
     <p>James Orca — Why I started Orca Realty & what sets us apart</p>
   </div>
-  <a href="#" class="watch-link">Watch 2-min video →</a>
+  <!-- ADD LINK HERE (e.g. YouTube or Vimeo modal trigger) -->
+  <a href="#watch-video" class="watch-link">Watch 2-min video →</a>
 </div>
 
 <!-- WHY ORCA -->
@@ -855,8 +706,8 @@
   <div class="why-video-side">
     <div class="video-overlay-text">
       <div class="play-btn">
-        <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
-          <path d="M1 1l12 8-12 8V1z" fill="#c9a96e"/>
+        <svg width="18" height="22" viewBox="0 0 14 18" fill="none">
+          <path d="M1 1l12 8-12 8V1z" />
         </svg>
       </div>
       <p>Watch our story</p>
@@ -871,31 +722,34 @@
   <div class="audience-grid">
     <div class="audience-card active">
       <svg class="aud-icon" viewBox="0 0 42 42" fill="none">
-        <rect x="6" y="18" width="30" height="20" rx="1" stroke="#c9a96e" stroke-width="1.5"/>
-        <path d="M14 38V28h14v10" stroke="#c9a96e" stroke-width="1.5"/>
-        <path d="M2 20L21 5l19 15" stroke="#c9a96e" stroke-width="1.5"/>
+        <rect x="6" y="18" width="30" height="20" rx="2" stroke="#d4af37" stroke-width="2"/>
+        <path d="M14 38V28h14v10" stroke="#d4af37" stroke-width="2"/>
+        <path d="M2 20L21 5l19 15" stroke="#d4af37" stroke-width="2"/>
       </svg>
       <h3>I'm a landlord</h3>
       <p>Full-service property management, tenant screening, rent collection, and compliance — so you earn more without the headaches.</p>
-      <a href="#" class="audience-cta">Landlord services →</a>
+      <!-- ADD LINK HERE -->
+      <a href="#landlord-services" class="audience-cta">Landlord services →</a>
     </div>
     <div class="audience-card">
       <svg class="aud-icon" viewBox="0 0 42 42" fill="none">
-        <circle cx="21" cy="21" r="16" stroke="#666" stroke-width="1.5"/>
-        <path d="M14 21l5 5 9-9" stroke="#666" stroke-width="1.5"/>
+        <circle cx="21" cy="21" r="16" stroke="#6b6661" stroke-width="2"/>
+        <path d="M14 21l5 5 9-9" stroke="#6b6661" stroke-width="2"/>
       </svg>
       <h3>I'm buying or selling</h3>
       <p>Expert valuation, strategic marketing, and skilled negotiation to secure the right deal — on your terms, and on time.</p>
-      <a href="#" class="audience-cta">Sales services →</a>
+      <!-- ADD LINK HERE -->
+      <a href="#sales-services" class="audience-cta">Sales services →</a>
     </div>
     <div class="audience-card">
       <svg class="aud-icon" viewBox="0 0 42 42" fill="none">
-        <path d="M8 34V16l13-8 13 8v18" stroke="#666" stroke-width="1.5"/>
-        <circle cx="21" cy="22" r="5" stroke="#666" stroke-width="1.5"/>
+        <path d="M8 34V16l13-8 13 8v18" stroke="#6b6661" stroke-width="2"/>
+        <circle cx="21" cy="22" r="5" stroke="#6b6661" stroke-width="2"/>
       </svg>
       <h3>I'm seeking to rent</h3>
       <p>Curated listings, quick-move options, and zero agency hassle. Find your next home with transparent, honest guidance.</p>
-      <a href="#" class="audience-cta">Find a rental →</a>
+      <!-- ADD LINK HERE -->
+      <a href="#rentals" class="audience-cta">Find a rental →</a>
     </div>
   </div>
 </section>
@@ -914,14 +768,12 @@
       <button class="filter-btn">New</button>
     </div>
   </div>
+  
   <div class="listings-grid">
     <!-- Card 1 -->
     <div class="listing-card">
       <div class="listing-img">
-        <div class="listing-img-placeholder">
-          <svg class="img-icon" width="40" height="34" viewBox="0 0 40 34"><rect x="1" y="7" width="38" height="26" rx="2" stroke="#888" stroke-width="1.5" fill="none"/><circle cx="28" cy="15" r="4" stroke="#888" stroke-width="1.5" fill="none"/><path d="M1 26l10-10 8 8 5-5 10 9" stroke="#888" stroke-width="1.5" fill="none"/><path d="M10 7V3M20 7V1M30 7V4" stroke="#888" stroke-width="1.5"/></svg>
-          <span>Property photo</span>
-        </div>
+        <span style="color:var(--warm-gray);font-size:0.8rem;text-transform:uppercase;">Property Photo</span>
         <div class="listing-badge">For sale</div>
       </div>
       <div class="listing-body">
@@ -935,17 +787,15 @@
         </div>
       </div>
     </div>
+    
     <!-- Card 2 -->
     <div class="listing-card">
       <div class="listing-img">
-        <div class="listing-img-placeholder">
-          <svg class="img-icon" width="40" height="34" viewBox="0 0 40 34"><rect x="1" y="7" width="38" height="26" rx="2" stroke="#888" stroke-width="1.5" fill="none"/><circle cx="28" cy="15" r="4" stroke="#888" stroke-width="1.5" fill="none"/><path d="M1 26l10-10 8 8 5-5 10 9" stroke="#888" stroke-width="1.5" fill="none"/></svg>
-          <span>Property photo</span>
-        </div>
-        <div class="listing-badge" style="background:#0a0a0a;color:#c9a96e;">To rent</div>
+        <span style="color:var(--warm-gray);font-size:0.8rem;text-transform:uppercase;">Property Photo</span>
+        <div class="listing-badge" style="background:var(--black);color:var(--gold);">To rent</div>
       </div>
       <div class="listing-body">
-        <div class="listing-price">£3,200 <span style="font-size:0.9rem;color:#8c8680;font-family:var(--sans)">/mo</span></div>
+        <div class="listing-price">£3,200 <span style="font-size:1rem;color:var(--warm-gray);font-weight:400">/mo</span></div>
         <div class="listing-name">Riverside Garden Flat</div>
         <div class="listing-loc">Richmond, Surrey</div>
         <div class="listing-meta">
@@ -955,13 +805,11 @@
         </div>
       </div>
     </div>
+    
     <!-- Card 3 -->
     <div class="listing-card">
       <div class="listing-img">
-        <div class="listing-img-placeholder">
-          <svg class="img-icon" width="40" height="34" viewBox="0 0 40 34"><rect x="1" y="7" width="38" height="26" rx="2" stroke="#888" stroke-width="1.5" fill="none"/><circle cx="28" cy="15" r="4" stroke="#888" stroke-width="1.5" fill="none"/><path d="M1 26l10-10 8 8 5-5 10 9" stroke="#888" stroke-width="1.5" fill="none"/></svg>
-          <span>Property photo</span>
-        </div>
+        <span style="color:var(--warm-gray);font-size:0.8rem;text-transform:uppercase;">Property Photo</span>
         <div class="listing-badge">New listing</div>
       </div>
       <div class="listing-body">
@@ -975,123 +823,48 @@
         </div>
       </div>
     </div>
-    <!-- Row 2 -->
-    <div class="listing-card">
-      <div class="listing-img">
-        <div class="listing-img-placeholder">
-          <svg class="img-icon" width="40" height="34" viewBox="0 0 40 34"><rect x="1" y="7" width="38" height="26" rx="2" stroke="#888" stroke-width="1.5" fill="none"/><path d="M1 26l10-10 8 8 5-5 10 9" stroke="#888" stroke-width="1.5" fill="none"/></svg>
-          <span>Property photo</span>
-        </div>
-        <div class="listing-badge" style="background:#0a0a0a;color:#c9a96e;">To rent</div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">£1,850 <span style="font-size:0.9rem;color:#8c8680;font-family:var(--sans)">/mo</span></div>
-        <div class="listing-name">The Courtyard Studio</div>
-        <div class="listing-loc">Bermondsey, SE1</div>
-        <div class="listing-meta">
-          <div class="meta-item"><strong>1</strong> bed</div>
-          <div class="meta-item"><strong>1</strong> bath</div>
-          <div class="meta-item"><strong>520</strong> sq ft</div>
-        </div>
-      </div>
-    </div>
-    <div class="listing-card">
-      <div class="listing-img">
-        <div class="listing-img-placeholder">
-          <svg class="img-icon" width="40" height="34" viewBox="0 0 40 34"><rect x="1" y="7" width="38" height="26" rx="2" stroke="#888" stroke-width="1.5" fill="none"/><path d="M1 26l10-10 8 8 5-5 10 9" stroke="#888" stroke-width="1.5" fill="none"/></svg>
-          <span>Property photo</span>
-        </div>
-        <div class="listing-badge">For sale</div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">£620,000</div>
-        <div class="listing-name">Burnside Terrace</div>
-        <div class="listing-loc">Hackney, East London</div>
-        <div class="listing-meta">
-          <div class="meta-item"><strong>3</strong> beds</div>
-          <div class="meta-item"><strong>2</strong> baths</div>
-          <div class="meta-item"><strong>1,450</strong> sq ft</div>
-        </div>
-      </div>
-    </div>
-    <div class="listing-card">
-      <div class="listing-img">
-        <div class="listing-img-placeholder">
-          <svg class="img-icon" width="40" height="34" viewBox="0 0 40 34"><rect x="1" y="7" width="38" height="26" rx="2" stroke="#888" stroke-width="1.5" fill="none"/><path d="M1 26l10-10 8 8 5-5 10 9" stroke="#888" stroke-width="1.5" fill="none"/></svg>
-          <span>Property photo</span>
-        </div>
-        <div class="listing-badge">New listing</div>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">£490,000</div>
-        <div class="listing-name">Ash Grove Apartment</div>
-        <div class="listing-loc">Clapham, SW4</div>
-        <div class="listing-meta">
-          <div class="meta-item"><strong>2</strong> beds</div>
-          <div class="meta-item"><strong>2</strong> baths</div>
-          <div class="meta-item"><strong>880</strong> sq ft</div>
-        </div>
-      </div>
-    </div>
   </div>
+  
   <div class="listings-cta">
-    <a href="#" class="btn-primary">View all listings →</a>
+    <!-- ADD LINK HERE -->
+    <a href="#all-listings" class="btn-primary" style="padding: 1.2rem 2.5rem;">View all listings →</a>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services">
   <div class="section-tag">What we do</div>
-  <h2 class="display" style="color:var(--white)">Full-spectrum<br><em>property services</em></h2>
+  <h2 class="display">Full-spectrum<br><em>property services</em></h2>
   <p class="section-sub">Expert support at every stage of your property journey — from first search to long-term portfolio management.</p>
+  
   <div class="services-grid">
     <div class="service-card">
       <div class="service-num">01</div>
-      <h3>Strategic Property Marketing</h3>
-      <p>Professional photography, virtual tours, and targeted digital campaigns that reach the right buyers and tenants fast.</p>
-      <a href="#" class="service-link">Learn more →</a>
+      <h3>Strategic Marketing</h3>
+      <p>Professional photography, virtual tours, and targeted digital campaigns that reach buyers fast.</p>
+      <!-- ADD LINK HERE -->
+      <a href="#service-1" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-num">02</div>
-      <h3>Tenant Verification & Placement</h3>
-      <p>Comprehensive background checks, employment verification, and reference screening to protect your investment.</p>
-      <a href="#" class="service-link">Learn more →</a>
+      <h3>Tenant Verification</h3>
+      <p>Comprehensive background checks, employment verification, and reference screening.</p>
+      <!-- ADD LINK HERE -->
+      <a href="#service-2" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-num">03</div>
-      <h3>Market Valuation & Analysis</h3>
-      <p>Data-driven valuations based on live comparables, local demand trends, and your property's unique attributes.</p>
-      <a href="#" class="service-link">Learn more →</a>
+      <h3>Market Valuation</h3>
+      <p>Data-driven valuations based on live comparables and your property's unique attributes.</p>
+      <!-- ADD LINK HERE -->
+      <a href="#service-3" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-num">04</div>
-      <h3>Legal & Compliance Support</h3>
-      <p>From tenancy agreements to safety certificates — we ensure your property stays legally compliant and protected.</p>
-      <a href="#" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-num">05</div>
-      <h3>Market Insights & Reporting</h3>
-      <p>Monthly portfolio reports, yield analysis, and market intelligence so you always know where you stand.</p>
-      <a href="#" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-num">06</div>
-      <h3>Financial Reporting & Transparency</h3>
-      <p>Clear, itemised income and expense statements. No hidden fees. Full visibility into every penny.</p>
-      <a href="#" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-num">07</div>
-      <h3>Maintenance Coordination</h3>
-      <p>24/7 tenant support and vetted contractor network to handle repairs quickly — without bothering you.</p>
-      <a href="#" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-num">08</div>
-      <h3>Investment Consultancy</h3>
-      <p>Identify high-yield opportunities before they hit the open market with our off-market property sourcing.</p>
-      <a href="#" class="service-link">Learn more →</a>
+      <h3>Legal & Compliance</h3>
+      <p>From tenancy agreements to safety certificates — we ensure your property stays legally compliant.</p>
+      <!-- ADD LINK HERE -->
+      <a href="#service-4" class="service-link">Learn more →</a>
     </div>
   </div>
 </section>
@@ -1123,19 +896,12 @@
           <div class="loc-desc">Guildford, Esher, Cobham & surrounding villages</div>
         </div>
       </div>
-      <div class="location-item">
-        <div class="loc-num">04</div>
-        <div>
-          <div class="loc-name">North Shore</div>
-          <div class="loc-desc">Hampstead, Highgate & Muswell Hill</div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="locations-map">
-    <div class="map-placeholder">
+    <div style="text-align:center">
       <div class="map-dot"></div>
-      <p>Interactive map — replace with embed</p>
+      <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em;">Interactive Map Embed</p>
     </div>
   </div>
 </div>
@@ -1147,45 +913,50 @@
   <div class="features-bento">
     <div class="bento-card">
       <div class="bento-media">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" opacity="0.3">
-          <path d="M24 4l4 12h13l-10 8 4 12-11-8-11 8 4-12L7 16h13z" stroke="#8c8680" stroke-width="1.5" fill="none"/>
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M24 4l4 12h13l-10 8 4 12-11-8-11 8 4-12L7 16h13z" stroke="#6b6661" stroke-width="2" fill="none"/>
         </svg>
       </div>
       <div class="bento-text">
         <div class="section-tag">Returns</div>
         <h3>Maximise your rental yields</h3>
-        <p>Our active rent review process and market analysis consistently deliver returns above market rate for landlords.</p>
-        <a href="#" class="btn-primary">Calculate my returns →</a>
+        <p>Our active rent review process and market analysis consistently deliver returns above market rate.</p>
+        <!-- ADD LINK HERE -->
+        <a href="#calc" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.75rem;">Calculate Returns</a>
       </div>
     </div>
+    
     <div class="bento-card dark">
       <div class="bento-media dark-bg">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" opacity="0.4">
-          <rect x="8" y="8" width="32" height="32" rx="2" stroke="#c9a96e" stroke-width="1.5" fill="none"/>
-          <path d="M16 24l6 6 10-12" stroke="#c9a96e" stroke-width="1.5"/>
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="8" y="8" width="32" height="32" rx="4" stroke="#d4af37" stroke-width="2" fill="none"/>
+          <path d="M16 24l6 6 10-12" stroke="#d4af37" stroke-width="2"/>
         </svg>
       </div>
       <div class="bento-text">
-        <div class="section-tag" style="color:var(--gold)">Screening</div>
-        <h3 style="color:var(--white)">Expert tenant screening</h3>
-        <p>We run the industry's most thorough vetting process — credit checks, employer references, and right-to-rent verification included.</p>
-        <a href="#" class="btn-primary" style="background:var(--gold);color:var(--black)">How it works →</a>
+        <div class="section-tag">Screening</div>
+        <h3>Expert tenant screening</h3>
+        <p>We run the industry's most thorough vetting process — credit checks, references, and verification included.</p>
+        <!-- ADD LINK HERE -->
+        <a href="#screening" class="btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.75rem;">How it works</a>
       </div>
     </div>
+    
     <div class="bento-card full">
       <div class="bento-media" style="aspect-ratio:16/9">
         <div style="text-align:center">
-          <div class="play-btn" style="border-color:var(--warm-gray)">
-            <svg width="14" height="18" viewBox="0 0 14 18" fill="none"><path d="M1 1l12 8-12 8V1z" fill="#8c8680"/></svg>
+          <div class="play-btn" style="background:var(--white);">
+            <svg width="18" height="22" viewBox="0 0 14 18" fill="none"><path d="M1 1l12 8-12 8V1z" fill="#111"/></svg>
           </div>
-          <p style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gray)">Owner walkthrough video</p>
+          <p style="font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--black); margin-top:1rem;">Owner Walkthrough</p>
         </div>
       </div>
       <div class="bento-text">
         <div class="section-tag">Full service</div>
         <h3>End-to-end property management</h3>
         <p>From finding your first tenant to managing a portfolio of 20 — Orca handles every operational detail. Our landlords enjoy hands-off ownership with full peace of mind.</p>
-        <a href="#" class="btn-primary">Start managing with Orca →</a>
+        <!-- ADD LINK HERE -->
+        <a href="#management" class="btn-primary">Start managing with Orca →</a>
       </div>
     </div>
   </div>
@@ -1193,10 +964,8 @@
 
 <!-- TESTIMONIALS -->
 <section class="testimonials">
-  <div style="text-align:center;margin-bottom:0.5rem">
-    <div class="section-tag" style="justify-content:center"><span style="width:24px;height:1px;background:var(--gold);display:block"></span>Client stories</div>
-  </div>
-  <h2 class="display" style="text-align:center;margin:0 auto">What our clients say</h2>
+  <div class="section-tag">Client stories</div>
+  <h2 class="display">What our clients say</h2>
   <div class="testimonials-grid">
     <div class="testimonial-card">
       <div class="stars">★★★★★</div>
@@ -1236,15 +1005,13 @@
 
 <!-- LEAD CAPTURE CTA -->
 <section class="cta-section" id="contact">
-  <div style="position:relative;z-index:2">
-    <div class="section-tag">Free expert advice</div>
-    <h2 class="display" style="color:var(--white);max-width:600px;margin:0 auto 0">Get expert help<br><em>today</em></h2>
-    <p>Leave your email and one of our local specialists will be in touch within one business day — no obligation.</p>
-    <div class="cta-form">
-      <input type="email" placeholder="Your email address">
-      <button type="submit">Get started →</button>
-    </div>
-  </div>
+  <div class="section-tag">Free expert advice</div>
+  <h2 class="display">Get expert help <em>today</em></h2>
+  <p>Leave your email and one of our local specialists will be in touch within one business day — no obligation.</p>
+  <form class="cta-form">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit">Get started →</button>
+  </form>
 </section>
 
 <!-- READY TO MOVE -->
@@ -1252,12 +1019,13 @@
   <div>
     <div class="section-tag">Next steps</div>
     <h2 class="display">Ready to <em>move</em><br>forward?</h2>
-    <p>Let us know how we can help — whether you're buying your first home, selling, or looking for expert property management.</p>
+    <p class="section-sub">Let us know how we can help — whether you're buying your first home, selling, or looking for expert property management.</p>
   </div>
   <div class="ready-actions">
-    <a href="#" class="ready-btn-primary">Book a free valuation →</a>
-    <a href="#" class="ready-btn-outline">Browse all listings</a>
-    <a href="#" class="ready-btn-outline">Speak to a specialist</a>
+    <!-- ADD LINKS HERE -->
+    <a href="#book-val" class="ready-btn-primary">Book a free valuation</a>
+    <a href="#browse" class="ready-btn-outline">Browse all listings</a>
+    <a href="#speak" class="ready-btn-outline">Speak to a specialist</a>
   </div>
 </section>
 
@@ -1265,54 +1033,72 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <a href="#" class="logo">Orca<span style="color:var(--gold)">.</span></a>
+      <!-- ADD LINK HERE -->
+      <a href="/" class="logo">Orca<span style="color:var(--gold)">.</span></a>
       <p>Connecting people with the right properties since 2012. Trusted by over 2,000 clients across London and the South East.</p>
       <div class="footer-socials">
-        <a href="#" class="social-icon">in</a>
-        <a href="#" class="social-icon">ig</a>
-        <a href="#" class="social-icon">fb</a>
-        <a href="#" class="social-icon">yt</a>
+        <!-- ADD SOCIAL LINKS HERE -->
+        <a href="#linkedin" class="social-icon">in</a>
+        <a href="#instagram" class="social-icon">ig</a>
+        <a href="#facebook" class="social-icon">fb</a>
+        <a href="#youtube" class="social-icon">yt</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#">Buy a property</a></li>
-        <li><a href="#">Sell your home</a></li>
-        <li><a href="#">Find a rental</a></li>
-        <li><a href="#">Property management</a></li>
-        <li><a href="#">Investment advice</a></li>
+        <!-- ADD LINKS HERE -->
+        <li><a href="#buy">Buy a property</a></li>
+        <li><a href="#sell">Sell your home</a></li>
+        <li><a href="#rent">Find a rental</a></li>
+        <li><a href="#manage">Property management</a></li>
+        <li><a href="#invest">Investment advice</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <ul>
-        <li><a href="#">About Orca</a></li>
-        <li><a href="#">Meet the team</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press & media</a></li>
-        <li><a href="#">Contact us</a></li>
+        <!-- ADD LINKS HERE -->
+        <li><a href="#about">About Orca</a></li>
+        <li><a href="#team">Meet the team</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#press">Press & media</a></li>
+        <li><a href="#contact">Contact us</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
       <ul>
-        <li><a href="#">Market reports</a></li>
-        <li><a href="#">Buyer's guide</a></li>
-        <li><a href="#">Landlord hub</a></li>
-        <li><a href="#">Tenant FAQs</a></li>
-        <li><a href="#">Blog & insights</a></li>
+        <!-- ADD LINKS HERE -->
+        <li><a href="#reports">Market reports</a></li>
+        <li><a href="#guide">Buyer's guide</a></li>
+        <li><a href="#hub">Landlord hub</a></li>
+        <li><a href="#faq">Tenant FAQs</a></li>
+        <li><a href="#blog">Blog & insights</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2025 Orca Realty Ltd. All rights reserved.</span>
     <span>Registered in England & Wales · NAEA Member · ARLA Licensed</span>
-    <span><a href="#" style="color:inherit;text-decoration:none">Privacy</a> · <a href="#" style="color:inherit;text-decoration:none">Terms</a> · <a href="#" style="color:inherit;text-decoration:none">Cookies</a></span>
+    <span>
+      <!-- ADD LEGAL LINKS HERE -->
+      <a href="#privacy" style="color:inherit;text-decoration:none">Privacy</a> · 
+      <a href="#terms" style="color:inherit;text-decoration:none">Terms</a> · 
+      <a href="#cookies" style="color:inherit;text-decoration:none">Cookies</a>
+    </span>
   </div>
 </footer>
 
 <script>
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  
+  mobileBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
   // Filter button interactions
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1329,7 +1115,7 @@
     });
   });
 
-  // Fade-in on scroll
+  // Fade-in on scroll animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1341,8 +1127,8 @@
 
   document.querySelectorAll('.listing-card, .service-card, .bento-card, .testimonial-card, .why-feat, .location-item').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
 </script>
